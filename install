@@ -1,0 +1,12 @@
+pushd $(dirname ${BASH_SOURCE[0]}) > /dev/null
+
+    link=~/.local/bin/.k0
+    real=$PWD/payload/init.sh
+    rm -rf $link
+    ln -s $real $link
+    . .k0
+    k0-linkall $PWD/lbin $K0_MASTER_LBIN
+    ./runtests 2> /dev/null
+
+popd > /dev/null
+

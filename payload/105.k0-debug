@@ -1,0 +1,5 @@
+k0-debug () {
+    [ -z $KISS_DEBUG ] && return
+    echo "DEBUG: $@" >&2
+}
+

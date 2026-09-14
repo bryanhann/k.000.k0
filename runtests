@@ -1,0 +1,4 @@
+cd $(dirname $0)
+for path in $(ls $PWD/tests/test_*); do
+    $path
+done

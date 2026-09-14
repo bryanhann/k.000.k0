@@ -1,0 +1,8 @@
+k0-root-to () {
+    local acc= 
+    local part
+    for part in $(echo $1 | tr '/' ' '); do
+        acc=$acc/$part
+        echo $acc
+    done
+}

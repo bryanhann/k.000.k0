@@ -1,0 +1,5 @@
+echo 76 $*
+read
+. k
+
+set | grep ^K

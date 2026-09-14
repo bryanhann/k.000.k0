@@ -1,0 +1,15 @@
+k0-linkall () {
+    local reals=$1
+    local links=$2
+    local real
+    local link
+    k0-debug "k0-linkall()"
+    k0-debug "    reals: $reals"
+    k0-debug "    links: $links"
+    for real in $(ls $reals/*); do
+        [ ! -f $real ] && continue
+        link=$links/$(basename $real)
+        k0-link $real $link
+    done
+}
+

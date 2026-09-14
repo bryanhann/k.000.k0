@@ -1,0 +1,6 @@
+k0-prepend () {
+    if [[ ":$PATH:" != *":$1:"* ]]; then
+        k0-export PATH $1:$PATH
+    fi
+}
+

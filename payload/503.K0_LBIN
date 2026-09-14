@@ -1,0 +1,4 @@
+export K0_MASTER_LBIN=~/.local/bin
+k0-prepend   $K0_MASTER_LBIN
+mkdir -p     $K0_MASTER_LBIN
+

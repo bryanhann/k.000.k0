@@ -1,0 +1,1 @@
+export K0_THIS=$(k0-resolve ${K_1})

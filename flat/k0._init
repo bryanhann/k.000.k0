@@ -1,0 +1,12 @@
+k0-init () {
+    local parent
+    local init
+    for parent in $(. .k0._parents $1); do
+        init=$parent/.init/init.sh
+        [ -f $init ] && {
+            . .k0.debug $(. .k0.bold "sourcing $init" )
+            source $init
+        }
+    done
+}
+k0-init "$@"

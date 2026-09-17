@@ -1,0 +1,27 @@
+bin=~/.local/bin
+pushd $(dirname ${BASH_SOURCE[0]}) > /dev/null
+here=$PWD
+popd > /dev/null
+
+source $here/vendor/bash_colors/bash_colors.sh
+
+note () {
+    [ -z $K0_DEBUG ] && return
+    clr_bold "$@" >&2
+}
+
+note "INSTALLING [$(dirname $here)]"
+note "    LBIN is [$bin]"
+note "    HERE is [$here]"
+note "REMOVING [LBIN/.k0*]"
+for path in $(ls $bin/.k0* 2> /dev/null); do
+    note "    $(basename $path)"
+   rm -f $path
+done
+note "LINKING [LBIN/.k0*] to [HERE/k0*]"
+for real in $(ls $here/k0*); do
+    link=$bin/.$(basename $real)
+    note "    $(basename $link)" # -> HERE/$(basename $real)"
+    ln -s $real $link
+done
+

@@ -1,0 +1,30 @@
+if [ -z $K0_BASH_SOURCE1 ]; then
+
+    . .k0.export K0_SOURCER_PATH
+    . .k0.export K0_SOURCER_FACE
+    . .k0.export K0_SOURCER_DOT
+    . .k0.export K0_SOURCER_FIN
+
+elif [ $0 == $K0_BASH_SOURCE1 ]; then
+
+    . .k0.export K0_SOURCER_PATH $(. .k0.resolve $K0_BASH_SOURCE1)
+    . .k0.export K0_SOURCER_FACE $(basename   $K0_BASH_SOURCE1)
+    . .k0.export K0_SOURCER_DOT
+    . .k0.export K0_SOURCER_FIN  exit
+
+else
+
+    . .k0.export K0_SOURCER_PATH $(. .k0.resolve $K0_BASH_SOURCE1)
+    . .k0.export K0_SOURCER_FACE $(basename   $K0_BASH_SOURCE1)
+    . .k0.export K0_SOURCER_DOT  .
+    . .k0.export K0_SOURCER_FIN  return
+
+fi
+
+. .k0.export K0_SOURCER_REPO
+
+for p in $(. .k0._parents $K0_SOURCER_PATH); do
+    . .k0.export K0_SOURCER_REPO $p
+    break
+done
+

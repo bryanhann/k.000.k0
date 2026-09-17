@@ -1,0 +1,5 @@
+# If already sourced, clr_bold should be defined.
+declare -F clr_bold > /dev/null > /dev/null && return
+this=$(. .k0.resolve ${BASH_SOURCE[0]})
+. $(dirname $this)/vendor/bash_colors/bash_colors.sh
+. .k0.debug "$(clr_bold 'sourced bash_colors.sh')"

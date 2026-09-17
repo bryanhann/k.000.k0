@@ -1,9 +1,0 @@
-unset foo
-. .k0
-k0-init4this $K0_THIS
-
-test_foo () {
-    [ "$foo" == "bar" ]
-}
-
-. $K0_SHUNIT2 2> /dev/null

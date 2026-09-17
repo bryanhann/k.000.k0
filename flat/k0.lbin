@@ -1,0 +1,14 @@
+. .k0.BIN
+the-linking () {
+    . .k0.debug "LBIN LINKING: $1"
+    local name
+    local real
+    local link
+    for name in $(ls $1); do
+         real=$1/$name
+         link=$K0_BIN/$name
+         [ ! -f $real ] && continue
+         . .k0.symlink $real $link
+    done
+}
+the-linking $1

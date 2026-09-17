@@ -1,0 +1,10 @@
+#!/usr/bin/env bash # do not make executable
+
+. .k0.export  K0_BASH_DOLLAR0 $0
+. .k0.export  K0_BASH_SOURCE0 ${BASH_SOURCE[0]}
+. .k0.export  K0_BASH_SOURCE1 ${BASH_SOURCE[1]}
+
+. .k0.BIN
+. .k0.SOURCER
+
+. .k0._init $K0_SOURCER_PATH

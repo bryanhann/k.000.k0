@@ -1,0 +1,8 @@
+[ x${BASH_SOURCE[0]} == x${BASH_SOURCE[1]} ] && {
+    echo ${BASH_SOURCE} must be sourced from within a script.
+    return
+}
+
+this=$(. .k0.resolve ${BASH_SOURCE[0]})
+. $(dirname $this)/vendor/shunit2/shunit2/shunit2
+

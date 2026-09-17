@@ -1,0 +1,12 @@
+k0-parents () {
+    local acc= 
+    local part
+    local found=
+    for part in $(echo $1 | tr '/' ' '); do
+        acc=$acc/$part
+        [ -d $acc/.git ] && found=1
+        [ ! -z $found  ] && echo $acc
+    done
+}
+
+k0-parents $1

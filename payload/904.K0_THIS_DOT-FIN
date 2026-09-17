@@ -1,7 +1,0 @@
-if [ $0 == $K_1 ]; then
-    export K0_THIS_DOT=
-    export K0_THIS_FIN=exit
-else
-    export K0_THIS_DOT=.
-    export K0_THIS_FIN=return
-fi

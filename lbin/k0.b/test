@@ -1,6 +1,0 @@
-. .k0
-k0-bin-next $@
-echo ----
-set | grep ^kiss
-read
-#echo 8181 source $repo/.init/init.sh

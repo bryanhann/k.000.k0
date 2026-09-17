@@ -1,0 +1,13 @@
+the_help () {
+    local base=$(basename $1)
+    local bin=$1.d
+    . .k0.bold "usage:"
+    . .k0.bold "    $base SUBCOMMAND"
+    . .k0.bold "subcommands:"
+    for name in $(ls $bin); do
+        local path=$bin/$name
+        [ -f $path ] && . .k0.bold "    $name"
+    done
+}
+
+the_help "$@"

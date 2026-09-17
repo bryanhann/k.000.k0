@@ -1,0 +1,3 @@
+. .k0.colors
+#declare -F clr_bold > /dev/null > /dev/null ||  . .k0.bash_colors
+clr_bold "$@"

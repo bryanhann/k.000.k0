@@ -1,0 +1,11 @@
+[ ! -d $K0_SOURCER_PATH.d ] && {
+    . .k0.err "there is no $K0_SOURCER_PATH.d"
+    return 99
+}
+
+[ -f $K0_SOURCER_PATH.d/$1 ] && {
+   $K0_SOURCER_DOT $K0_SOURCER_PATH.d/"$@"
+   return $?
+}
+
+. .k0.help $K0_SOURCER_PATH

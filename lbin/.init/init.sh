@@ -1,1 +1,1 @@
-k0-init-nnn ${BASH_SOURCE[0]}
+lbin_foo=bar

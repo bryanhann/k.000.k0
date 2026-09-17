@@ -1,1 +1,1 @@
-k0-init-nnn ${BASH_SOURCE[0]}
+repo_foo=bar

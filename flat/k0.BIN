@@ -1,0 +1,3 @@
+. .k0.export   K0_BIN ${K0_BIN:=~/.local/bin}
+. .k0.prepend $K0_BIN
+mkdir -p      $K0_BIN

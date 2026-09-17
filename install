@@ -1,12 +1,15 @@
-pushd $(dirname ${BASH_SOURCE[0]}) > /dev/null
+[ ! $0 == ${BASH_SOURCE[0]} ] && {
+    echo ${BASH_SOURCE[0]} must be called not sourced
+    return
+}
 
-    link=~/.local/bin/.k0
-    real=$PWD/payload/init.sh
-    rm -rf $link
-    ln -s $real $link
-    . .k0
-    k0-linkall $PWD/lbin $K0_MASTER_LBIN
-    ./runtests 2> /dev/null
-
+pushd $(dirname $0) > /dev/null
+here=$PWD
 popd > /dev/null
 
+main () {
+    $1/flat/install
+    . .k0.lbin $1/lbin
+    k0 test
+}
+main $here

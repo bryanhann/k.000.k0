@@ -1,0 +1,17 @@
+k0-resolve () {
+    [ $1. == . ] && return 1
+    local path=$1
+    while [ -L $path ]; do path=$(readlink $path); done
+    local first_char=${path:0:1}
+    if [ ! "$first_char" == "/" ]; then
+        dname=$(dirname $path)
+        pushd $(dirname $path) > /dev/null
+        path=$PWD/$(basename $path)
+        popd > /dev/null
+    fi
+    . .k0.debug "k0-resolve"
+    . .k0.debug "    [$1]"
+    . .k0.debug "     -> [$path]"
+    echo $path
+}
+k0-resolve "$@"

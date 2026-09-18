@@ -1,5 +1,7 @@
 case ":$PATH:" in
     *:"$1":*) 
+        ;;
+    *)
         export PATH=$1:$PATH
         ;;
 esac

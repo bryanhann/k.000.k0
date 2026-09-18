@@ -1,0 +1,6 @@
+./test.each runs the tests properly, though
+a few tests report errors.
+
+./test.all seems ok.
+
+./regress.test does not work.

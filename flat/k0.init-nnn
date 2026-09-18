@@ -1,5 +1,5 @@
 k0-init-nnn () {
-    local here=$(K0-resolve $1)
+    local here=$(. .k0.resolve $1)
     local name
     [ -f $here ] && here=$(dirname $here)
     for name in $(ls $here | sort | grep ^[0-9]); do

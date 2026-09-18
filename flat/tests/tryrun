@@ -1,0 +1,5 @@
+[ "$1" == "-t" ] && {
+    . .k0.bold "================ file: $(basename ${BASH_SOURCE[1]})"
+    shift 
+    . .k0.shunit2 2> /dev/null
+}

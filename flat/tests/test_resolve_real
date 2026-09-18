@@ -1,0 +1,9 @@
+. ./constants
+
+test_k0_resolve_real () {
+    unset K0_DEBUG
+    a=$(. .k0.resolve $HOME)
+    [ "$a" == "$HOME" ]
+}
+
+. tryrun $*

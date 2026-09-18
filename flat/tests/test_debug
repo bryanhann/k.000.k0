@@ -1,0 +1,12 @@
+source ./constants
+
+test_k0_debug () {
+    unset K0_DEBUG
+    a=$(err4debug)
+    [ "$a" == "" ]
+    export K0_DEBUG=1
+    b=$(err4debug)
+    [ "$b" == "K0-DEBUG: abc" ]
+}
+
+. tryrun $*

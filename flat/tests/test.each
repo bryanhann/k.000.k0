@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+cd $(dirname $0)
+for path in $(ls $PWD/test_*); do
+    $path -t
+done

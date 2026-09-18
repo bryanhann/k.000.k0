@@ -1,0 +1,6 @@
+cd $(dirname $0)
+source ./constants
+$PWD/test.all
+rm -rf $the_exp_dir
+cp -r  $the_got_dir $the_exp_dir
+

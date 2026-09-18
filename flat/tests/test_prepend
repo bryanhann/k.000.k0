@@ -1,0 +1,13 @@
+. ./constants
+
+test_k0_prepend () {
+    . .k0.prepend venus
+    [ ${PATH:0:6} == "venus:" ]
+    . .k0.prepend mars
+    [ ${PATH:0:11} == "mars:venus:" ]
+    # adding venus a second time does nothing,
+    . .k0.prepend venus
+    [ ${PATH:0:11} == "mars:venus:" ]
+}
+
+. tryrun $*

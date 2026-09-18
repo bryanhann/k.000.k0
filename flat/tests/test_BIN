@@ -1,0 +1,19 @@
+. ./constants
+
+test_k0_BIN_fresh () {
+    unset K0_BIN
+    . .k0.BIN
+    [ $K0_BIN == "~/.local/bin" ]
+    [ $K0_BIN == "$HOME/.local/bin" ]
+}
+test_k0_BIN_reset () {
+    tmp=~/.tmp/$RANDOM
+    K0_BIN=$tmp
+    . .k0.BIN
+    [ $K0_BIN == "$tmp" ]
+    [ ${PATH:0:${#tmp}} == $tmp ]    
+    [ -d $tmp ]
+    rmdir $tmp
+}
+
+. tryrun $*

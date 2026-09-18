@@ -1,0 +1,16 @@
+. ./constants
+
+test_k0_lbin () {
+    tmp=~/.tmp/$RANDOM
+    K0_BIN=$tmp
+    . .k0.BIN
+    . .k0.lbin $PWD/test.data/lbin.d
+    [ "$(foo)" == "foo $tmp/foo ]
+    [ "$(bar)" == "foo $tmp/foo ]
+    [ "$(. foo)" == "foo is here" ]
+    [ "$(. bar)" == "bar is here" ]
+    rm $tmp/*
+    rmdir $tmp
+}
+
+. tryrun $*

@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+sandbox=$PWD/sandbox
+the_exp_dir=$PWD/regress.exp
+the_got_dir=$HOME/.tmp.test.k0/regress.got
+
+    
+err4debug () {
+    local err=./tmp.$RANDOM
+    . .k0.debug abc 2>$err
+    cat $err
+    rm $err
+}
+err4err () {
+    local err=./tmp.$RANDOM
+    . .k0.err abc 2>$err
+    cat $err
+    rm $err
+}
+    

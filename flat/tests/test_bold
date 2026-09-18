@@ -1,0 +1,7 @@
+. ./constants
+
+test_k0_bold () {
+    [ "[1mabc[0m" == $(. .k0.bold "abc") ]
+}
+
+. tryrun $*

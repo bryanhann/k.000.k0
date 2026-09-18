@@ -1,0 +1,9 @@
+. ./constants
+
+test_k0_export () {
+    unset foo
+    . .k0.export foo bar
+    [ "$foo" == "bar" ]
+}
+
+. tryrun $*

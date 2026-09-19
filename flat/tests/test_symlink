@@ -1,0 +1,48 @@
+. ./constants
+
+test-symlink-err11--0-args () {
+     . .k0.symlink 
+     assertEquals 11 $?
+}
+
+test-symlink-err11--1-args () {
+     . .k0.symlink foo
+     assertEquals 11 $?
+}
+
+test-symlink-err12--3-args () {
+     . .k0.symlink foo foo foo
+     assertEquals 12 $?
+}
+
+test-symlink-err13--bad-arg1-link-missing () {
+     remove $real
+     remove $link
+     . .k0.symlink $real $link
+     assertEquals 13 $?
+}
+
+test-symlink-err13--bad-arg1-link-exists () {
+     remove $real
+     touch  $link
+     . .k0.symlink $real $link
+     assertEquals 13 $?
+}
+
+test-symlink-err14--arg2-is-regular () {
+     touch $real
+     touch $link
+     . .k0.symlink $real $link
+     assertEquals 14 $?
+}
+
+test-symlink-works () {
+     touch  $real
+     remove #link
+     . .k0.symlink $real $link
+     assertEquals $? 0
+     assertTrue "link was created" "[ -L $link ]"
+     assertTrue "link resolves" "[ $real == $(readlink $link) ]"
+}
+
+. tryrun $*

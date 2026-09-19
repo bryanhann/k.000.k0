@@ -1,1 +1,2 @@
-echo $(. .k0.bold "$@") >&2
+echo "***** [.k0.err] [$(basename ${BASH_SOURCE[1]} 2>/dev/null)]: $@" >&2
+

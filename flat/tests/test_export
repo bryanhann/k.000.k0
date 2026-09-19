@@ -1,6 +1,6 @@
 . ./constants
 
-test_k0_export () {
+test-export () {
     unset foo
     . .k0.export foo bar
     [ "$foo" == "bar" ]

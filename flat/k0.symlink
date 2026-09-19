@@ -2,16 +2,20 @@
 . .k0.debug "    real: $1"
 . .k0.debug "    link: $2"
 
-[ ! -z $2 ] && [ -L $2 ] && {
-    . .k0.debug "    removing link"
-    rm $2
-}
+[   -z $2 ] && . .k0.err "too few args"
+[   -z $2 ] && return 11
 
-[ ! -z $2 ] && [ -e $2 ] && {
-    . .k0.debug "    could not remove link"
-    return 1
-}
+[ ! -z $3 ] && . .k0.err "too many args"
+[ ! -z $3 ] && return 12
 
-. .k0.debug "    creating link"
+[ ! -f $1 ] && . .k0.err "arg1 names nonexistant file"
+[ ! -f $1 ] && return 13
 
-ln -s $1 $2
+[   -f $2 ] && [ ! -L $2 ] && . .k0.err "arg2 names a regular file"
+[   -f $2 ] && [ ! -L $2 ] && return 14
+
+[   -f $2 ] && . .k0.debug "removing stale link"
+[   -f $2 ] && rm $2
+
+[    true ] && . .k0.debug "creating link"
+[    true ] && ln -s $1 $2

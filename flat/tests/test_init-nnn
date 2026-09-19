@@ -1,13 +1,13 @@
 . ./constants
 
-test_k0_init_nnn_dir () {
+test-init-nnn--dir () {
     unset name
     unset age
     . .k0.init-nnn $PWD/test.data/init-nnn.d
     [ "$dummy_name" == "bozo" ]
     [ "$dummy_age" == "42" ]
 }
-test_k0_init_nnn_missing () {
+test-init-nnn--missing () {
     unset name
     unset age
     . .k0.init-nnn $PWD/test.data/init-nnn.d/foo

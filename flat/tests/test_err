@@ -1,8 +1,10 @@
 source ./constants
 
-test_k0_err () {
-    a=$(err4err)
-    [ "$a" == $(. .k0.bold "abc") ]
+test-err () {
+    local exp="***** [.k0.err] [test_err]: foo"
+    got="$(. .k0.err foo 2>&1)"
+    # Quote because of the special chars in the string
+    assertEquals "$exp" "$got"
 }
 
 . tryrun $*

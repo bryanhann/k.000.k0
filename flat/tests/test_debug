@@ -1,6 +1,6 @@
 source ./constants
 
-test_k0_debug () {
+test-debug () {
     unset K0_DEBUG
     a=$(err4debug)
     [ "$a" == "" ]

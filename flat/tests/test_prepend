@@ -1,6 +1,6 @@
 . ./constants
 
-test_k0_prepend () {
+test-prepend () {
     . .k0.prepend venus
     [ ${PATH:0:6} == "venus:" ]
     . .k0.prepend mars

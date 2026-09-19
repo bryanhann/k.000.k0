@@ -1,6 +1,6 @@
 . ./constants
 
-test_k0_colors () {
+test-colors () {
     unset -f clr_bold
     . .k0.colors
     declare -f clr_bold   > /dev/null

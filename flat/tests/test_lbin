@@ -1,0 +1,14 @@
+. ./constants
+
+test-lbin--works () {
+    local src=$PWD/test.data/lbin.d
+    local dst=$sandbox/test_lbin/dst
+    mkdir -p $dst
+    export K0_BIN=$dst
+    . .k0.lbin $src
+    assertEquals "foo is here" "$(. foo)"
+    assertEquals "bar is here" "$(. bar)"
+    return 0
+}
+
+. tryrun $*

@@ -1,6 +1,6 @@
 . ./constants
 
-test_k0_resolve_real () {
+test-resolve--real () {
     unset K0_DEBUG
     a=$(. .k0.resolve $HOME)
     [ "$a" == "$HOME" ]

@@ -1,6 +1,6 @@
 . ./constants
 
-test_k0_resolve_link_one_level () {
+test-resolve--link-one-level () {
     local real=$HOME
     local link1=$HOME/.tmp.$RANDOM
     ln -s $real $link1

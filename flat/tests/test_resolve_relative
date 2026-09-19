@@ -1,9 +1,10 @@
 . ./constants
-test_k0_resolve_relative () {
 
+test-resolve--relative () {
     a=$(. .k0.resolve .)
     # the space in the following expansion is crucial
-    local tail="${a: -6}"
-    [ "$tail" == "flat/." ]
+    local tail="${a: -7}"
+    [ "$tail" == "tests/." ]
 }
+
 . tryrun $*

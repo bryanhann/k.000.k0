@@ -1,11 +1,22 @@
+source ./constants
+
 expD=$the_exp_dir #$PWD/regress.output/exp
 gotD=$the_got_dir #PWD/regress.output/got
+
+bold () {
+    . .k0.bold "$@"
+}
+
+scratch=$sandbox/scratch
 total=0
 errors=0
-scratch=~/o
 width=80
-echo
-. .k0.err '============regression tests=============================='
+
+bold '============regression tests=============================='
+bold '============regression scripts============================'
+ls $expD
+
+
 for name in $(ls $expD); do
     total=$(( $total + 1 ))
     exp=$expD/$name
@@ -15,13 +26,16 @@ for name in $(ls $expD); do
     line_exp="======[exp]========================================================="
     line_got="======[got]========================================================="
     line_end="====================================================================="
-    . .k0.err "${line_top:0:$width}"
+    bold "${line_top:0:$width}"
     cat $scratch
-    . .k0.err "${line_exp:0:$width}"
+    bold "${line_exp:0:$width}"
     cat $exp
-    . .k0.err "${line_got:0:$width}"
+    bold "${line_got:0:$width}"
     cat $got
-    . .k0.err "${line_end:0:$width}"
+    bold "${line_end:0:$width}"
     errors=$(( $errors + 1 ))
 done
-. .k0.err "$total tests ran with $errors errors"
+
+bold "$total tests ran with $errors errors"
+
+remove  $scratch

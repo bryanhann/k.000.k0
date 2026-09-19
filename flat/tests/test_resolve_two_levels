@@ -1,6 +1,6 @@
 . ./constants
 
-test_k0_resolve_link_two_levels () {
+test-resolve--link-two-levels () {
     local real=$HOME
     local link1=$HOME/.tmp.$RANDOM
     local link2=$HOME/.tmp.$RANDOM

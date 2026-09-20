@@ -1,7 +1,11 @@
+export PATH=$PWD/tests:$PATH
+
 git diff --quiet || {
     echo "There are unstaged changes"
+    read
+    $(dirname $0)/test.all
     exit 1
 }
-
 $(dirname $0)/test.all
+
 exit $?

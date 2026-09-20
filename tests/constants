@@ -13,8 +13,9 @@
 #   XXX we assume we were not sourced by symlink.
 #
 
-pushd $(dirname ${BASH_SOURCE[0]})
+pushd $(dirname ${BASH_SOURCE[0]}) 2> /dev/null
 export KT=$PWD
+popd 2> /dev/null
 
 sandbox=$PWD/sandbox
 the_exp_dir=$PWD/regress.exp

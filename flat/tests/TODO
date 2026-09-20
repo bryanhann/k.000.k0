@@ -1,1 +1,40 @@
 ADD REGRESSION TESTSS
+Refactor3 [KT_*] [split]
+
+The line above is code.
+    Refator3 tag1 tag2 tag3
+
+Three things being refactored at the same time.
+
+    [KT_*]
+    
+        Refers to environment variable names that begin
+        with "KT_".
+
+        All previous name are deprecated. Deprecated names 
+        are set to values in new name, eg,
+
+            export sandbox=$KT_SANDBOX
+    
+    [split]
+
+        Default l
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch main
+# Your branch is up to date with 'origin/main'.
+#
+# Changes to be committed:
+#	new file:   lib/hooks.sh
+#	new file:   lib/util.sh
+#
+# Changes not staged for commit:
+#	modified:   constants
+#	modified:   regress.test
+#	modified:   test_debug
+#	modified:   test_lbin
+#
+# Untracked files:
+#	.junk/
+#

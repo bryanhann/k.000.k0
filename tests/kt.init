@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
-source $KT/lib/functions.sh     
-source $KT/lib/hooks.sh
+source ${BASH_SOURCE[0]}.d/functions.sh
+source ${BASH_SOURCE[0]}.d/hooks.sh
+#source $KT/lib/functions.sh     
+#source $KT/lib/hooks.sh
 

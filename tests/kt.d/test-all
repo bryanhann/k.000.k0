@@ -17,5 +17,5 @@ suite() {
     done
 }
 
-. .k0.shunit2 2> /dev/null #$PWD/tmp.err.out
+. $KT_SHUNIT2 2> /dev/null
 

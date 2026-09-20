@@ -1,5 +1,21 @@
 #!/usr/bin/env bash
 
+# 
+#     KT  -- Tests for K.
+#
+#   All our environment variables should start with the
+#   prefix "KT_" except for the evironment variable
+#   "KT" which names this directory.
+#
+#   We do due diligence and guarantee *NOW* that our
+#   environment is set right. 
+#
+#   XXX we assume we were not sourced by symlink.
+#
+
+pushd $(dirname ${BASH_SOURCE[0]})
+export KT=$PWD
+
 sandbox=$PWD/sandbox
 the_exp_dir=$PWD/regress.exp
 the_got_dir=$HOME/.tmp.test.k0/regress.got

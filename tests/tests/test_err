@@ -1,4 +1,4 @@
-source ./constants
+. kt.init
 
 test-err () {
     local exp="***** [.k0.err] [test_err]: foo"
@@ -7,4 +7,4 @@ test-err () {
     assertEquals "$exp" "$got"
 }
 
-. tryrun $*
+. kt.run $*

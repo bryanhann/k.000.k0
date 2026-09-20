@@ -6,7 +6,7 @@ cd $(dirname $0)
     exit
 }
 
-source ./constants
+source kt.init
 
 suite() {
     local file

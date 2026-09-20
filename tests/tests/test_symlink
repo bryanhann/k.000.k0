@@ -1,4 +1,4 @@
-. ./constants
+. kt.init
 
 test-symlink-err11--0-args () {
      . .k0.symlink 
@@ -45,4 +45,4 @@ test-symlink-works () {
      assertTrue "link resolves" "[ $real == $(readlink $link) ]"
 }
 
-. tryrun $*
+. kt.run $*

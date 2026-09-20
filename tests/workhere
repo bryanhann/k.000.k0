@@ -1,0 +1,6 @@
+cd $(dirname $0)
+export PATH=$PWD:$PATH
+echo press enter to work here at $PWD
+read
+bash
+echo finished working here ar $PWD

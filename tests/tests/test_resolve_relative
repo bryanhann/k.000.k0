@@ -1,4 +1,4 @@
-. ./constants
+. kt.init
 
 test-resolve--relative () {
     a=$(. .k0.resolve .)
@@ -7,4 +7,4 @@ test-resolve--relative () {
     [ "$tail" == "tests/." ]
 }
 
-. tryrun $*
+. kt.run $*

@@ -1,4 +1,4 @@
-. ./constants
+. kt.init
 
 test-resolve--real () {
     unset K0_DEBUG
@@ -6,4 +6,4 @@ test-resolve--real () {
     [ "$a" == "$HOME" ]
 }
 
-. tryrun $*
+. kt.run $*

@@ -1,4 +1,4 @@
-source ./constants
+. kt.init
 
 test-debug () {
     unset K0_DEBUG
@@ -9,4 +9,4 @@ test-debug () {
     [ "$b" == "K0-DEBUG: abc" ]
 }
 
-. tryrun $*
+. kt.run $*

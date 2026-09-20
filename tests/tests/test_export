@@ -1,4 +1,4 @@
-. ./constants
+. kt.init
 
 test-export () {
     unset foo
@@ -6,4 +6,4 @@ test-export () {
     [ "$foo" == "bar" ]
 }
 
-. tryrun $*
+. kt.run $*

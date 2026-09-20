@@ -1,4 +1,4 @@
-. ./constants
+. kt.init
 
 test-init-nnn--dir () {
     unset name
@@ -7,6 +7,7 @@ test-init-nnn--dir () {
     [ "$dummy_name" == "bozo" ]
     [ "$dummy_age" == "42" ]
 }
+
 test-init-nnn--missing () {
     unset name
     unset age
@@ -15,4 +16,4 @@ test-init-nnn--missing () {
     [ "$dummy_age" == "42" ]
 }
 
-. tryrun $*
+. kt.run $*

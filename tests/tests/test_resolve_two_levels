@@ -1,4 +1,4 @@
-. ./constants
+. kt.init
 
 test-resolve--link-two-levels () {
     local real=$HOME
@@ -11,4 +11,4 @@ test-resolve--link-two-levels () {
     rm $link1 
 }
 
-. tryrun $*
+. kt.run $*

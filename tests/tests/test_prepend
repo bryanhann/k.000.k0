@@ -1,4 +1,4 @@
-. ./constants
+. kt.init
 
 test-prepend () {
     . .k0.prepend venus
@@ -10,4 +10,4 @@ test-prepend () {
     [ ${PATH:0:11} == "mars:venus:" ]
 }
 
-. tryrun $*
+. kt.run $*

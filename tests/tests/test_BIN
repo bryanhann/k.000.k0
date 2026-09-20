@@ -1,4 +1,4 @@
-. ./constants
+. kt.init
 
 test-BIN--fresh () {
     unset K0_BIN
@@ -16,4 +16,4 @@ test-BIN--reset () {
     rmdir $tmp
 }
 
-. tryrun $*
+. kt.run $*

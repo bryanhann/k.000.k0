@@ -1,4 +1,4 @@
-. ./constants
+. kt.init
 
 test-resolve--link-one-level () {
     local real=$HOME
@@ -9,4 +9,4 @@ test-resolve--link-one-level () {
     rm $link1 
 }
 
-. tryrun $*
+. kt.run $*

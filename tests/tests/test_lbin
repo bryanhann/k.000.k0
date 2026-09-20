@@ -1,4 +1,4 @@
-. ./constants
+. kt.init
 
 test-lbin--works () {
     local src=$PWD/test.data/lbin.d
@@ -11,4 +11,4 @@ test-lbin--works () {
     return 0
 }
 
-. tryrun $*
+. kt.run $*

@@ -1,4 +1,4 @@
-. ./constants
+. kt.init
 
 test-colors () {
     unset -f clr_bold
@@ -7,4 +7,4 @@ test-colors () {
 
 }
 
-. tryrun $*
+. kt.run $*

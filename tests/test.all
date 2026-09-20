@@ -11,9 +11,10 @@ source ./constants
 suite() {
     local file
     local function
-    for file in $(ls test_*); do  
-        echo source ./$file
-        source ./$file
+    local tests=./tests
+    for file in $(ls $KT/tests/test_*); do  
+        echo source $file
+        source $file
     done
     for function in $(set | grep ^test_ | cut -d' ' -f1); do
         suite_addTest $function

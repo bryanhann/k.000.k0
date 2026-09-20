@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 cd $(dirname $0)
-for path in $(ls $PWD/test_*); do
+for path in $(ls $PWD/tests/test_*); do
     $path -t
     read
 done

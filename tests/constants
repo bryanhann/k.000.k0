@@ -13,8 +13,10 @@
 #   XXX we assume we were not sourced by symlink.
 #
 
+_export () { export $1="$2"; }
+
 pushd $(dirname ${BASH_SOURCE[0]}) > /dev/null
-export KT=$PWD
+_export KT $PWD
 popd > /dev/null
 
 sandbox=$PWD/sandbox

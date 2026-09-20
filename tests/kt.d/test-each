@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+for path in $(ls $KT_TESTS/test_*); do
+    $path -t
+    read
+done

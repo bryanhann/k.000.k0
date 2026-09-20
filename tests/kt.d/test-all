@@ -1,18 +1,11 @@
 #!/usr/bin/env bash
-cd $(dirname $0)
-[ ! $PWD == $(dirname $0) ] && {
-    # we want this called with full pathname
-    $PWD/$(basename $0)
-    exit
-}
 
 source kt.init
 
 suite() {
     local file
     local function
-    local tests=./tests
-    for file in $(ls $KT/tests/test_*); do  
+    for file in $(ls $KT_TESTS/test_*); do  
         echo source $file
         source $file
     done
@@ -24,5 +17,5 @@ suite() {
     done
 }
 
-. .k0.shunit2 2> $PWD/tmp.err.out
+. .k0.shunit2 2> /dev/null #$PWD/tmp.err.out
 

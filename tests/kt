@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+if [ ! $(basename $0) == kt ]; then
+    echo ${BASH_SOURCE[0]} must be called, not sourced
+    return 1
+elif [ $0 == ./$(basename $0) ]; then
+    cd $(dirname $0) > /dev/null
+    root=$PWD
+elif [ "${0:0:1}" == "/" ]; then
+    root=$(dirname $0)
+else
+    echo $0 must be called with full pathname
+    exit 2
+fi
+
+_export () { export $1="$2"; }
+_export KT          $root
+_export KT_SANDBOX  $KT/sandbox
+_export KT_EXP      $KT/regress.exp
+_export KT_GOT      $HOME/.tmp.test.k0/regress.got
+_export KT_TESTS    $KT/tests
+
+source $KT/lib/functions.sh     
+source $KT/lib/hooks.sh
+
+export PATH=$KT:$PATH
+
+if [ -f $0.d/$1 ]; then
+    $0.d/$@
+    exit $?
+fi 
+
+echo unknown command
+for name  in $(ls $0.d); do
+    echo try: kt $name
+done

@@ -6,7 +6,7 @@ err4debug () {
 }
 
 err4err () {
-    local err=$sandbox/tmp.err4drr
+    local err=$KT_SANDBOX/tmp.err4drr
     . .k0.err abc 2>$err
     cat $err
     rm $err

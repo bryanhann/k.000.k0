@@ -2,7 +2,7 @@
 
 test-lbin--works () {
     local src=$PWD/test.data/lbin.d
-    local dst=$sandbox/test_lbin/dst
+    local dst=$KT_SANDBOX/test_lbin/dst
     mkdir -p $dst
     export K0_BIN=$dst
     . .k0.lbin $src

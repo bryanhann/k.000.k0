@@ -1,5 +1,5 @@
 oneTimeSetUp() {
-   mkdir -p $sandbox
+   mkdir -p $KT_SANDBOX
    rm       $the_got_dir/*
    rmdir    $the_got_dir
    mkdir -p $the_exp_dir
@@ -7,12 +7,12 @@ oneTimeSetUp() {
 }
 
 oneTimeTearDown() {
-   rm -rf $sandbox
+   rm -rf $KT_SANDBOX
 }
 
 setUp () {
-    real=$sandbox/real.$RANDOM
-    link=$sandbox/link.$RANDOM
+    real=$KT_SANDBOX/real.$RANDOM
+    link=$KT_SANDBOX/link.$RANDOM
     remove $real
     remove $link
 }

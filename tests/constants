@@ -23,7 +23,6 @@ _export KT_SANDBOX $KT/sandbox
 _export KT_EXP     $KT/regress.exp
 _export KT_GOT     $HOME/.tmp.test.k0/regress.got
 
-_export sandbox     $KT_SANDBOX
 _export the_exp_dir $KT_EXP
 _export the_got_dir $KT_GOT
 

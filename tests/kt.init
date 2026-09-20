@@ -1,28 +1,5 @@
 #!/usr/bin/env bash
 
-# 
-#     KT  -- Tests for K.
-#
-#   All our environment variables should start with the
-#   prefix "KT_" except for the evironment variable
-#   "KT" which names this directory.
-#
-#   We do due diligence and guarantee *NOW* that our
-#   environment is set right. 
-#
-#   XXX we assume we were not sourced by symlink.
-#
-
-_export () { export $1="$2"; }
-
-pushd $(dirname ${BASH_SOURCE[0]}) > /dev/null
-_export KT $PWD
-popd > /dev/null
-
-_export KT_SANDBOX $KT/sandbox
-#_export KT_EXP     $KT/regress.exp
-#_export KT_GOT     $HOME/.tmp.test.k0/regress.got
-
 source $KT/lib/functions.sh     
 source $KT/lib/hooks.sh
 

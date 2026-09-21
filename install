@@ -1,37 +1,25 @@
 #!/usr/bin/env bash
 
-_export () { export $1="$2";  }
-
-_export bs0   ${BASH_SOURCE[0]}
-_export name $(basename $bs0)
-_export bin  ~/.local/bin
-_export here 
-
-[ ! $0 == $bs0    ] && >&2 echo "[$bs0]: must be called, not sourced"
-[ ! $0 == $bs0    ] && return 1
-[   $0 == ./$name ] && here=$PWD
-[ ${0:0:1} == /   ] && here=$(dirname $0)
-[ -z $here        ] && >&2 echo "[$0]: must be called with full pathname"
-[ -z $here        ] && exit 2
-
-if [ $1. == --bin. ]; then
-    [ -z $2 ] && >&2 echo "[$0]: --bin flag requires an argument"
-    [ -z $2 ] && exit 3
-    bin=$2
-    shift 2
-    echo [$0]: using --bin $bin
-    echo press enter to continue...
-    read
+if [ ! $0 == ${BASH_SOURCE[0]} ]; then
+     echo >&2 "[${BASH_SOURCE[0]}] must be called, not sourced"
+     return 101
+elif [ ! ${0:0:1} == /   ]; then
+     echo >&2 "[$0]: must be called with full pathname"
+     exit 102
+elif [ $(readlink $0) ]; then
+     echo >&2 "[$0]: must not be symlinked"
+     exit 103
 fi
 
+here=$(dirname $0)
+flat=$here/flat
+bin=${KT_BIN:-$HOME/.local/bin}
+[ $1. == --test. ] && bin=$here/.tmpbin
+[ $1. == --test. ] && shift
 mkdir -p $bin
-
-rm $bin/.k0* 2> /dev/null
-
-for real in $(ls $here/flat/k0*); do
+rm $bin/.k0*
+for real in $(ls $flat/k0*); do
     link=$bin/.$(basename $real)
-    [ ! -z $K0_DEBUG ] && echo ln -s $real $link
+    echo "}}}" ln -s $real $link
     ln -s $real $link
 done
-
-

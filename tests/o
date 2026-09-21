@@ -20,18 +20,5 @@ if [ $1. == --bin. ]; then
     bin=$2
     shift 2
     echo [$0]: using --bin $bin
-    echo press enter to continue...
-    read
+    $(dirname $here)/install --bin $bin
 fi
-
-mkdir -p $bin
-
-rm $bin/.k0* 2> /dev/null
-
-for real in $(ls $here/flat/k0*); do
-    link=$bin/.$(basename $real)
-    [ ! -z $K0_DEBUG ] && echo ln -s $real $link
-    ln -s $real $link
-done
-
-

@@ -1,10 +1,11 @@
+#1/usr/bin/env bash
+
 git diff --quiet || {
     echo "There are unstaged changes"
     read
     kt test-all
     exit 1
 }
-
 
 kt test-all
 

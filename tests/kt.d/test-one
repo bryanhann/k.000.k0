@@ -1,2 +1,5 @@
 #!/usr/bin/env bash
+
+. kt.init
+
 $KT_TESTS/$1 -t

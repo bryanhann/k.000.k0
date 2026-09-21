@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+
+. kt.init
+
 for path in $(ls $KT_TESTS/test_*); do
     $path -t
     read

@@ -1,7 +1,7 @@
 . kt.init
 
 test-lbin--works () {
-    local src=$KT/test.data/lbin.d
+    local src=$KT_DATA/lbin.d
     local dst=$KT_SANDBOX/test_lbin/dst
     mkdir -p $dst
     export K0_BIN=$dst

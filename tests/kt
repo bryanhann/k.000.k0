@@ -14,7 +14,7 @@ fi
 here=$(dirname $0)
 bin=${KT_BIN:-$HOME/.local/bin}
 if [ $1. == --test. ]; then
-    bin=$here/.tmpbin
+    bin=$here/.tmpbin.$RANDOM
     shift
 fi
 
@@ -40,7 +40,8 @@ _export KT_SANDBOX  $KT/sandbox
 _export KT_EXP      $KT/regress.exp
 _export KT_GOT      $HOME/.tmp.test.k0/regress.got
 _export KT_TESTS    $KT/tests
-_export KT_SHUNIT2  $KT/vendor/shunit2/shunit2/shunit2
+_export KT_DATA     $KT/data
+_export KT_SHUNIT2  $KT/.vendor/shunit2/shunit2/shunit2
 _export PATH        $KT:$KT_BIN:$KT/bin:$(isolated)
 
 ###############################################################

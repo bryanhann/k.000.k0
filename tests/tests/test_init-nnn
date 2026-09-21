@@ -3,7 +3,7 @@
 test-init-nnn--dir () {
     unset name
     unset age
-    . .k0.init-nnn $KT/test.data/init-nnn.d
+    . .k0.init-nnn $KT_DATA/init-nnn.d
     [ "$dummy_name" == "bozo" ]
     [ "$dummy_age" == "42" ]
 }
@@ -11,7 +11,7 @@ test-init-nnn--dir () {
 test-init-nnn--missing () {
     unset name
     unset age
-    . .k0.init-nnn $KT/test.data/init-nnn.d/foo
+    . .k0.init-nnn $KT_DATA/init-nnn.d/foo
     [ "$dummy_name" == "bozo" ]
     [ "$dummy_age" == "42" ]
 }
